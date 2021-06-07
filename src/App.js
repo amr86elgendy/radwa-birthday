@@ -19,7 +19,7 @@ function App() {
           <div className='face back'>
             {/* <p className='text'>{p.text}</p> */}
             {/* <p>From : {p.from}</p> */}
-            <audio src={p.src} controls></audio>
+            <audio src={p.audio} controls></audio>
           </div>
         </div>
       ))}
