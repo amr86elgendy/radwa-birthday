@@ -1,29 +1,48 @@
-import React, { useState } from 'react';
-import data from './data';
+import React, { useEffect, useState } from "react";
+import data from "./data";
+
 
 function App() {
   const [isFlip, setIsFlip] = useState(null);
+  const [array, setArray] = useState([])
+  
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+    return arr
+  }
+ 
+  useEffect(() => {
+
+    setArray(shuffle(data))
+    
+  }, [])
   return (
     <>
-    <h1 className='title'>Happy Birthday <span>Dr. Radwa Elmoneer</span></h1>
-    <div className='container'>
-      {data.map((p, i) => (
-        <div
-          key={i}
-          className={isFlip === i ? 'card flip' : 'card'}
-          onClick={() => setIsFlip(i)}
-        >
-          <div className='face front'>
-            <img src={p.image} alt="cover" />
+      <h1 className="title head-1">Happy Birthday</h1>
+      <h1 className="title head-2">Dr. Radwa Elmoneer</h1>
+      <div className="container">
+        {array && array.map((p, i) => (
+          <div
+            key={i}
+            className={isFlip === i ? "card flip" : "card"}
+            onClick={() => setIsFlip(i)}
+          >
+            <div className="face front">
+              <img src={p.image} alt="cover" />
+            </div>
+            <div className="face back">
+              <p className="text">{p.text}</p>
+              {/* <p>From : {p.from}</p> */}
+              {p.audio && <audio src={p.audio} controls></audio>}
+            </div>
           </div>
-          <div className='face back'>
-            <p className='text'>{p.text}</p>
-            {/* <p>From : {p.from}</p> */}
-            {p.audio && (<audio src={p.audio} controls></audio>)}
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </>
   );
 }

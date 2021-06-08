@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +12,14 @@ body {
 .title {
   color: #622369;
   text-align: center;
-  margin: 2rem 0;
+}
+.head-1 {
+  letter-spacing: 0px;
+  font-size: 24;
+}
+
+.head-2 {
+  margin-bottom: 2rem;
 }
 
 .container {
