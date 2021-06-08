@@ -5,7 +5,7 @@ function App() {
   const [isFlip, setIsFlip] = useState(null);
   return (
     <>
-    <h1 className='title'>Happy Birthday DR/ Radwa-Elmoneir</h1>
+    <h1 className='title'>Happy Birthday Dr. Radwa Elmoneer</h1>
     <div className='container'>
       {data.map((p, i) => (
         <div
@@ -17,9 +17,9 @@ function App() {
             <img src={p.image} alt="cover" />
           </div>
           <div className='face back'>
-            {/* <p className='text'>{p.text}</p> */}
+            <p className='text'>{p.text}</p>
             {/* <p>From : {p.from}</p> */}
-            <audio src={p.audio} controls></audio>
+            {p.audio && (<audio src={p.audio} controls></audio>)} 
           </div>
         </div>
       ))}

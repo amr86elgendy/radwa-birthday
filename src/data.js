@@ -8,7 +8,7 @@ const data = [
   },
   {
     id: 3,
-    text: "Happy Birthday Dr/Radwa i hope you the best",
+    text: "",
     from: "amany",
     audio: "",
     image: "/cover.png",
