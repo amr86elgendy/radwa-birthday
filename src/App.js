@@ -33,12 +33,12 @@ function App() {
             onClick={() => setIsFlip(i)}
           >
             <div className="face front">
-              <img src={p.image} alt="cover" />
+              <img src={p.cover} alt="cover" />
             </div>
             <div className="face back">
-              <p className="text">{p.text}</p>
-              {/* <p>From : {p.from}</p> */}
-              {p.audio && <audio src={p.audio} controls></audio>}
+              {!p.image && <p className="text">{p.from}</p>}
+              {p.image && <img src={p.image} alt={p.from} className='image' />}
+              {p.audio && <audio src={p.audio} type='audio/ogg' muted={isFlip !== i} controls></audio>}
             </div>
           </div>
         ))}
